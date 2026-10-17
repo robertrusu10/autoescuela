@@ -1,0 +1,322 @@
+/* --- ESTILOS GENERALES Y RESET --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212; /* Fondo oscuro elegante */
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+/* --- CABECERA --- */
+header {
+    background-color: rgba(18, 18, 18, 0.95);
+    padding: 1.5rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #333;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: #ffcc00; /* Amarillo neón */
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #ccc;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #ffcc00;
+}
+
+.btn-header {
+    background-color: #ffcc00;
+    color: #121212;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn-header:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 204, 0, 0.6);
+}
+
+/* --- SECCIÓN HERO (PORTADA) --- */
+.hero {
+    padding: 10rem 5%;
+    text-align: center;
+    
+    /* Usamos background-image en lugar de background para evitar errores */
+    background-image: linear-gradient(rgba(18, 18, 18, 0.85), rgba(10, 10, 10, 0.95)), url('https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+    
+    background-size: cover;
+    background-position: center;
+    border-bottom: 1px solid #333;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.highlight {
+    color: #ffcc00;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #aaa;
+    max-width: 700px;
+    margin: 0 auto 2.5rem auto;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn-primary {
+    background-color: #ffcc00;
+    color: #121212;
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 0 20px rgba(255, 204, 0, 0.8);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    border: 2px solid #555;
+    font-weight: bold;
+    transition: border-color 0.3s;
+}
+
+.btn-secondary:hover {
+    border-color: #ffcc00;
+}
+
+/* --- ESTADÍSTICAS --- */
+.stats {
+    display: flex;
+    justify-content: space-around;
+    background-color: #1a1a1a;
+    padding: 3rem 5%;
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-item h3 {
+    font-size: 2.5rem;
+    color: #ffcc00;
+    margin-bottom: 0.5rem;
+}
+
+.stat-item p {
+    color: #aaa;
+    font-size: 1.1rem;
+}
+
+/* --- TARJETAS DE SERVICIOS (GRID) --- */
+.services {
+    padding: 5rem 5%;
+    text-align: center;
+}
+
+.services h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.grid-services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background-color: #1a1a1a;
+    padding: 2.5rem;
+    border-radius: 15px;
+    border: 1px solid #333;
+    transition: transform 0.3s, border-color 0.3s;
+    text-align: left;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-color: #ffcc00;
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.card p {
+    color: #aaa;
+    margin-bottom: 1.5rem;
+}
+
+.price {
+    display: inline-block;
+    background-color: rgba(255, 204, 0, 0.1);
+    color: #ffcc00;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+/* --- FOOTER --- */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: #0a0a0a;
+    color: #666;
+    border-top: 1px solid #222;
+}
+
+/* ==========================================
+   DISEÑO RESPONSIVO (MÓVILES)
+   ========================================== */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .stats {
+        flex-direction: column;
+        gap: 30px;
+    }
+}
+/* --- FORMULARIOS Y PÁGINAS SECUNDARIAS --- */
+.page-header {
+    text-align: center;
+    padding: 4rem 5%;
+    background: #1a1a1a;
+    border-bottom: 1px solid #333;
+}
+
+.page-header h1 {
+    color: #ffcc00;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 4rem auto;
+    padding: 2.5rem;
+    background: #1a1a1a;
+    border-radius: 15px;
+    border: 1px solid #333;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #ccc;
+    font-weight: 500;
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    background: #121212;
+    border: 1px solid #444;
+    border-radius: 8px;
+    color: #fff;
+    font-family: inherit;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus, 
+.form-group select:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: #ffcc00;
+    box-shadow: 0 0 8px rgba(255, 204, 0, 0.3);
+}
+
+.btn-submit {
+    width: 100%;
+    background: #ffcc00;
+    color: #121212;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn-submit:hover {
+    background: #e6b800;
+    transform: translateY(-2px);
+}

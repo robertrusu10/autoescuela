@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | Autoescuela Rusu</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">🏁 Autoescuela <span>Code By Rusu</span></div>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="teorico.html">Teórico Online</a>
+            <a href="contacto.html" style="color: #ffcc00;">Contacto</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <h1>Arranca tu aventura</h1>
+            <p>Pásate por nuestra oficina en Colmenar Viejo o escríbenos para reservar tu plaza.</p>
+        </section>
+
+        <section class="form-container">
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="nombre">Nombre completo</label>
+                    <input type="text" id="nombre" placeholder="Ej: Carlos Pérez" required>
+                </div>
+                <div class="form-group">
+                    <label for="permiso">¿Qué carnet buscas?</label>
+                    <select id="permiso">
+                        <option value="B">Carnet B (Coche)</option>
+                        <option value="A2">Carnet A2 (Moto)</option>
+                        <option value="A">Carnet A (Moto Grande)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="mensaje">¿Alguna duda?</label>
+                    <textarea id="mensaje" rows="4" placeholder="Escribe aquí tu consulta..."></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Solicitar Información</button>
+            </form>
+        </section>
+    </main>
+    <script src="js/script.js"></script>
+</body>
+</html>
