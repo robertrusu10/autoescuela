@@ -13,21 +13,21 @@ body {
 }
 
 /* ==========================================
-   HEADER Y NAV MODERNO - AUTOESCUELA (COMPLETO)
+   HEADER Y NAV MODERNO - AUTOESCUELA (LIMPIO)
    ========================================== */
 
 /* 1. Contenedor principal del Header */
-header, nav, .navbar {
+header {
     width: 100% !important;
-    background-color: #121212 !important; /* Fondo oscuro elegante */
-    border-bottom: 1px solid #2a2a2a !important; /* Línea de separación */
+    background-color: #121212 !important; 
+    border-bottom: 1px solid #2a2a2a !important; 
     padding: 15px 5% !important;
     box-sizing: border-box !important;
-    position: relative !important; /* Para que suba con el scroll */
+    position: relative !important; 
 }
 
-/* 2. Distribución interna (Logo - Menú - Botón) */
-.nav-container, header .container, .navbar-content {
+/* 2. Distribución interna (Logo a la izq, Menú al centro, Botón a la der) */
+.nav-container {
     max-width: 1200px !important;
     margin: 0 auto !important;
     display: flex !important;
@@ -36,53 +36,56 @@ header, nav, .navbar {
     gap: 20px !important;
 }
 
-/* 3. Logo / Título en una sola línea */
-header h1, .logo, .brand {
+/* 3. Logo / Título */
+header h1, .logo {
     font-size: 1.3rem !important;
     font-weight: 700 !important;
-    white-space: nowrap !important; /* Evita que baje a otra línea */
+    white-space: nowrap !important; 
     margin: 0 !important;
     color: #ffffff !important;
 }
 
 header h1 span, .logo span {
-    color: #ffcc00 !important; /* Color amarillo de acento */
+    color: #ffcc00 !important; 
 }
 
-/* 4. Contenedor de enlaces del menú */
-nav ul, .nav-links, header nav ul.nav-links {
+/* 4. Contenedor del Menú (Alineado y con 35px de espacio) */
+nav ul, .nav-links {
     display: flex !important;
     align-items: center !important;
-    gap: 25px !important; /* Espacio uniforme entre enlaces */
+    justify-content: center !important;
+    gap: 35px !important; /* Separación perfecta entre palabras */
     list-style: none !important;
     margin: 0 !important;
     padding: 0 !important;
 }
 
-/* 5. Enlaces (SIEMPRE blancos, sin morado ni subrayado) */
+nav ul li, .nav-links li {
+    display: inline-block !important;
+}
+
+/* 5. Enlaces (BLANCOS obligatorios, sin morado, "Teórico Online" en una línea) */
 nav ul li a, 
-.nav-links a, 
-header nav ul.nav-links a,
-header nav ul.nav-links a:link,
-header nav ul.nav-links a:visited {
+.nav-links a,
+.nav-links a:link,
+.nav-links a:visited,
+header a {
     color: #ffffff !important; 
     text-decoration: none !important; 
-    font-size: 0.95rem !important;
+    font-size: 1rem !important;
     font-weight: 500 !important;
-    transition: color 0.2s ease, border-bottom 0.2s ease !important;
-    padding-bottom: 4px !important;
+    white-space: nowrap !important; /* Fuerza una sola línea */
+    transition: color 0.2s ease !important;
 }
 
-/* 6. Efecto hover elegante al pasar el ratón */
 nav ul li a:hover, 
 .nav-links a:hover,
-header nav ul.nav-links a:hover {
+header a:hover {
     color: #ffcc00 !important;
-    border-bottom: 2px solid #ffcc00 !important;
 }
 
-/* 7. Botón destacado "¡Apúntate Ya!" */
-.btn-apuntate, header .btn, header button {
+/* 6. Botón destacado "¡Apúntate Ya!" */
+.btn-apuntate {
     background-color: #ffcc00 !important;
     color: #000000 !important;
     font-weight: 700 !important;
@@ -95,57 +98,17 @@ header nav ul.nav-links a:hover {
     transition: transform 0.2s ease, background-color 0.2s ease !important;
 }
 
-.btn-apuntate:hover, header .btn:hover {
+.btn-apuntate:hover {
     background-color: #e6b800 !important;
     transform: translateY(-2px) !important;
 }
 
 
-/* ==========================================
-   ADAPTACIÓN RESPONSIVE PARA MÓVIL
-   ========================================== */
-
-@media (max-width: 768px) {
-    header, nav, .navbar {
-        padding: 15px 20px !important;
-    }
-
-    .nav-container, header .container, .navbar-content {
-        flex-direction: column !important;
-        text-align: center !important;
-        gap: 12px !important;
-    }
-
-    header h1, .logo {
-        font-size: 1.1rem !important;
-        white-space: normal !important;
-    }
-
-    nav ul, .nav-links {
-        flex-wrap: wrap !important;
-        justify-content: center !important;
-        gap: 12px !important;
-    }
-
-    nav ul li a, .nav-links a {
-        font-size: 0.85rem !important;
-    }
-
-    .btn-apuntate, header .btn {
-        width: 100% !important;
-        max-width: 250px;
-        margin-top: 5px;
-    }
-}
-
-/* --- SECCIÓN HERO (PORTADA) --- */
+/* --- SECCIÓN HERO (PORTADA DEL COCHE) --- */
 .hero {
     padding: 10rem 5%;
     text-align: center;
-    
-    /* Usamos background-image en lugar de background para evitar errores */
     background-image: linear-gradient(rgba(18, 18, 18, 0.85), rgba(10, 10, 10, 0.95)), url('https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-    
     background-size: cover;
     background-position: center;
     border-bottom: 1px solid #333;
@@ -283,43 +246,6 @@ header nav ul.nav-links a:hover {
     font-weight: bold;
 }
 
-/* --- FOOTER --- */
-footer {
-    text-align: center;
-    padding: 2rem;
-    background-color: #0a0a0a;
-    color: #666;
-    border-top: 1px solid #222;
-}
-
-/* ==========================================
-   DISEÑO RESPONSIVO (MÓVILES)
-   ========================================== */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    nav {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-    }
-
-    .hero h1 {
-        font-size: 2.2rem;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-    }
-
-    .stats {
-        flex-direction: column;
-        gap: 30px;
-    }
-}
 /* --- FORMULARIOS Y PÁGINAS SECUNDARIAS --- */
 .page-header {
     text-align: center;
@@ -393,78 +319,59 @@ footer {
     transform: translateY(-2px);
 }
 
-/* ==========================================
-   DESACTIVAR NAV FIJO Y MEJORAR ESPACIADO
-   ========================================== */
-
-/* Hace que el menú navegue con el scroll sin quedarse pegado arriba */
-header, nav, .navbar, .header-container {
-    position: relative !important;
-    top: auto !important;
-    left: auto !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
+/* --- FOOTER --- */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: #0a0a0a;
+    color: #666;
+    border-top: 1px solid #222;
 }
 
+/* ==========================================
+   DISEÑO RESPONSIVO (MÓVILES)
+   ========================================== */
 @media (max-width: 768px) {
-    header, nav, .navbar {
+    header, nav {
         padding: 15px 10px !important;
-        display: flex !important;
+    }
+
+    .nav-container {
         flex-direction: column !important;
-        align-items: center !important;
-        gap: 8px !important;
+        text-align: center !important;
+        gap: 15px !important;
     }
 
-    /* Reducir el título principal del nav */
-    header h1, .logo, .brand {
-        font-size: 1.3rem !important;
-        text-align: center;
-        margin-bottom: 5px;
+    header h1, .logo {
+        font-size: 1.2rem !important;
+        white-space: normal !important;
     }
 
-    /* Enlaces de navegación alineados en horizontal */
     nav ul, .nav-links {
-        display: flex !important;
         flex-wrap: wrap !important;
         justify-content: center !important;
-        gap: 12px !important;
-        padding: 0 !important;
-        margin: 5px 0 !important;
-        list-style: none;
+        gap: 15px !important;
     }
 
-    /* Botón destacado ¡Apúntate Ya! más compacto */
-    header .btn, header button, .btn-apuntate {
-        font-size: 0.85rem !important;
-        padding: 8px 16px !important;
-        width: auto !important;
+    nav ul li a, .nav-links a {
+        font-size: 0.9rem !important;
     }
 
-    /* Asegurar que las tarjetas de cursos/permisos no se monten arriba */
-    main, .hero, .container, section {
-        margin-top: 0 !important;
-        padding-top: 15px !important;
+    .btn-apuntate {
+        width: 100% !important;
+        max-width: 250px;
     }
-}
 
-/* ==========================================
-   FORZAR ESTILOS LIMPIOS EN LOS ENLACES
-   ========================================== */
-header nav ul li a,
-.nav-links a,
-.nav-links a:link,
-.nav-links a:visited,
-.nav-links a:active {
-    color: #ffffff !important; /* Fuerza el texto a blanco siempre */
-    text-decoration: none !important; /* Quita el subrayado morado/azul */
-    font-size: 0.95rem !important;
-    font-weight: 500 !important;
-    transition: color 0.2s ease !important;
-}
+    .hero h1 {
+        font-size: 2.2rem;
+    }
 
-/* Efecto hover (dorado/amarillo al pasar el ratón) */
-header nav ul li a:hover,
-.nav-links a:hover {
-    color: #ffcc00 !important;
-    text-decoration: none !important;
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .stats {
+        flex-direction: column;
+        gap: 30px;
+    }
 }
