@@ -1,33 +1,43 @@
-/* --- ESTILOS GENERALES Y RESET --- */
-* {
+/* ==========================================
+   VARIABLES Y RESET GLOBAL
+   ========================================== */
+:root {
+    --bg-dark: #121212;
+    --card-bg: #1e1e1e;
+    --accent-yellow: #ffcc00;
+    --accent-hover: #e6b800;
+    --text-light: #ffffff;
+    --text-muted: #b3b3b3;
+}
+
+html, body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    max-width: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth; /* Para que al pulsar los enlaces baje suavemente */
 }
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #121212; /* Fondo oscuro elegante */
-    color: #ffffff;
-    line-height: 1.6;
+*, *:before, *:after {
+    box-sizing: inherit;
 }
 
 /* ==========================================
-   HEADER Y NAV MODERNO - AUTOESCUELA (COMPLETO)
+   HEADER Y NAVEGACIÓN (BULLETPROOF ENLACES)
    ========================================== */
-
-/* 1. Contenedor principal del Header */
-header, nav, .navbar {
+header {
     width: 100% !important;
-    background-color: #121212 !important; /* Fondo oscuro elegante */
-    border-bottom: 1px solid #2a2a2a !important; /* Línea de separación */
+    background-color: var(--bg-dark) !important;
+    border-bottom: 1px solid #2a2a2a !important;
     padding: 15px 5% !important;
-    box-sizing: border-box !important;
-    position: relative !important; /* Para que suba con el scroll */
+    position: relative !important;
 }
 
-/* 2. Distribución interna (Logo - Menú - Botón) */
-.nav-container, header .container, .navbar-content {
+.nav-container {
     max-width: 1200px !important;
     margin: 0 auto !important;
     display: flex !important;
@@ -36,54 +46,58 @@ header, nav, .navbar {
     gap: 20px !important;
 }
 
-/* 3. Logo / Título en una sola línea */
-header h1, .logo, .brand {
-    font-size: 1.3rem !important;
+/* Título / Logo */
+header h1, .logo {
+    font-size: 1.4rem !important;
     font-weight: 700 !important;
-    white-space: nowrap !important; /* Evita que baje a otra línea */
     margin: 0 !important;
-    color: #ffffff !important;
+    color: var(--text-light) !important;
+    white-space: nowrap !important;
 }
 
 header h1 span, .logo span {
-    color: #ffcc00 !important; /* Color amarillo de acento */
+    color: var(--accent-yellow) !important;
 }
 
-/* 4. Contenedor de enlaces del menú */
-nav ul, .nav-links, header nav ul.nav-links {
+/* Contenedor Menú */
+nav ul, .nav-links {
     display: flex !important;
     align-items: center !important;
-    gap: 25px !important; /* Espacio uniforme entre enlaces */
+    gap: 25px !important;
     list-style: none !important;
     margin: 0 !important;
     padding: 0 !important;
 }
 
-/* 5. Enlaces (SIEMPRE blancos, sin morado ni subrayado) */
-nav ul li a, 
-.nav-links a, 
-header nav ul.nav-links a,
-header nav ul.nav-links a:link,
-header nav ul.nav-links a:visited {
-    color: #ffffff !important; 
-    text-decoration: none !important; 
+/* ========================================================
+   REGLA DEFINITIVA PARA DESTRUIR EL COLOR MORADO VISITADO
+   ======================================================== */
+header a, 
+header a:link, 
+header a:visited, 
+header a:active,
+nav ul li a,
+.nav-links a {
+    color: var(--text-light) !important; /* Blanco forzado 100% */
+    text-decoration: none !important; /* Cero subrayado */
     font-size: 0.95rem !important;
     font-weight: 500 !important;
     transition: color 0.2s ease, border-bottom 0.2s ease !important;
-    padding-bottom: 4px !important;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 4px;
 }
 
-/* 6. Efecto hover elegante al pasar el ratón */
+/* Hover dorado al pasar el ratón */
+header a:hover,
 nav ul li a:hover, 
-.nav-links a:hover,
-header nav ul.nav-links a:hover {
-    color: #ffcc00 !important;
-    border-bottom: 2px solid #ffcc00 !important;
+.nav-links a:hover {
+    color: var(--accent-yellow) !important;
+    border-bottom: 2px solid var(--accent-yellow) !important;
 }
 
-/* 7. Botón destacado "¡Apúntate Ya!" */
-.btn-apuntate, header .btn, header button {
-    background-color: #ffcc00 !important;
+/* Botón Apúntate Ya */
+header .btn-apuntate, .btn-apuntate {
+    background-color: var(--accent-yellow) !important;
     color: #000000 !important;
     font-weight: 700 !important;
     font-size: 0.9rem !important;
@@ -95,354 +109,177 @@ header nav ul.nav-links a:hover {
     transition: transform 0.2s ease, background-color 0.2s ease !important;
 }
 
-.btn-apuntate:hover, header .btn:hover {
-    background-color: #e6b800 !important;
+header .btn-apuntate:hover, .btn-apuntate:hover {
+    background-color: var(--accent-hover) !important;
     transform: translateY(-2px) !important;
+    border-bottom: none !important; 
 }
 
 
 /* ==========================================
-   ADAPTACIÓN RESPONSIVE PARA MÓVIL
+   ESTRUCTURA GENERAL Y SECCIONES (DESKTOP)
    ========================================== */
-
-@media (max-width: 768px) {
-    header, nav, .navbar {
-        padding: 15px 20px !important;
-    }
-
-    .nav-container, header .container, .navbar-content {
-        flex-direction: column !important;
-        text-align: center !important;
-        gap: 12px !important;
-    }
-
-    header h1, .logo {
-        font-size: 1.1rem !important;
-        white-space: normal !important;
-    }
-
-    nav ul, .nav-links {
-        flex-wrap: wrap !important;
-        justify-content: center !important;
-        gap: 12px !important;
-    }
-
-    nav ul li a, .nav-links a {
-        font-size: 0.85rem !important;
-    }
-
-    .btn-apuntate, header .btn {
-        width: 100% !important;
-        max-width: 250px;
-        margin-top: 5px;
-    }
+section {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-/* --- SECCIÓN HERO (PORTADA) --- */
-.hero {
-    padding: 10rem 5%;
+h2 {
     text-align: center;
-    
-    /* Usamos background-image en lugar de background para evitar errores */
-    background-image: linear-gradient(rgba(18, 18, 18, 0.85), rgba(10, 10, 10, 0.95)), url('https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-    
-    background-size: cover;
-    background-position: center;
-    border-bottom: 1px solid #333;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: var(--accent-yellow);
 }
 
-.hero h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1.5rem;
-    line-height: 1.2;
+p {
+    line-height: 1.6;
+    color: var(--text-muted);
 }
 
-.highlight {
-    color: #ffcc00;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    color: #aaa;
-    max-width: 700px;
-    margin: 0 auto 2.5rem auto;
-}
-
-.hero-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.btn-primary {
-    background-color: #ffcc00;
-    color: #121212;
-    padding: 12px 30px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.3s ease;
-}
-
-.btn-primary:hover {
-    box-shadow: 0 0 20px rgba(255, 204, 0, 0.8);
-}
-
-.btn-secondary {
-    background-color: transparent;
-    color: #fff;
-    padding: 12px 30px;
-    border-radius: 30px;
-    text-decoration: none;
-    border: 2px solid #555;
-    font-weight: bold;
-    transition: border-color 0.3s;
-}
-
-.btn-secondary:hover {
-    border-color: #ffcc00;
-}
-
-/* --- ESTADÍSTICAS --- */
-.stats {
-    display: flex;
-    justify-content: space-around;
-    background-color: #1a1a1a;
-    padding: 3rem 5%;
-    border-top: 1px solid #333;
-    border-bottom: 1px solid #333;
-}
-
-.stat-item {
-    text-align: center;
-}
-
-.stat-item h3 {
-    font-size: 2.5rem;
-    color: #ffcc00;
-    margin-bottom: 0.5rem;
-}
-
-.stat-item p {
-    color: #aaa;
-    font-size: 1.1rem;
-}
-
-/* --- TARJETAS DE SERVICIOS (GRID) --- */
-.services {
-    padding: 5rem 5%;
-    text-align: center;
-}
-
-.services h2 {
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-}
-
-.grid-services {
+/* Tarjetas de permisos / Cursos (Grid) */
+.grid, .cards-container, .permisos-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    gap: 20px;
+    margin-top: 20px;
 }
 
 .card {
-    background-color: #1a1a1a;
-    padding: 2.5rem;
-    border-radius: 15px;
+    background-color: var(--card-bg);
     border: 1px solid #333;
-    transition: transform 0.3s, border-color 0.3s;
-    text-align: left;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
 }
 
 .card:hover {
-    transform: translateY(-10px);
-    border-color: #ffcc00;
-}
-
-.card-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+    transform: translateY(-5px);
+    border-color: var(--accent-yellow);
 }
 
 .card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+    color: var(--text-light);
+    font-size: 1.3rem;
+    margin-bottom: 15px;
 }
 
-.card p {
-    color: #aaa;
-    margin-bottom: 1.5rem;
-}
-
-.price {
+.card .precio {
     display: inline-block;
-    background-color: rgba(255, 204, 0, 0.1);
-    color: #ffcc00;
+    background-color: #333;
+    color: var(--accent-yellow);
     padding: 8px 15px;
     border-radius: 20px;
     font-weight: bold;
+    margin-top: 15px;
 }
 
-/* --- FOOTER --- */
-footer {
-    text-align: center;
-    padding: 2rem;
-    background-color: #0a0a0a;
-    color: #666;
-    border-top: 1px solid #222;
-}
-
-/* ==========================================
-   DISEÑO RESPONSIVO (MÓVILES)
-   ========================================== */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    nav {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-    }
-
-    .hero h1 {
-        font-size: 2.2rem;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-    }
-
-    .stats {
-        flex-direction: column;
-        gap: 30px;
-    }
-}
-/* --- FORMULARIOS Y PÁGINAS SECUNDARIAS --- */
-.page-header {
-    text-align: center;
-    padding: 4rem 5%;
-    background: #1a1a1a;
-    border-bottom: 1px solid #333;
-}
-
-.page-header h1 {
-    color: #ffcc00;
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-}
-
-.form-container {
+/* Formularios */
+form {
     max-width: 600px;
-    margin: 4rem auto;
-    padding: 2.5rem;
-    background: #1a1a1a;
-    border-radius: 15px;
-    border: 1px solid #333;
+    margin: 0 auto;
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 12px;
 }
 
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: #ccc;
-    font-weight: 500;
-}
-
-.form-group input, 
-.form-group select, 
-.form-group textarea {
+input, select, textarea {
     width: 100%;
     padding: 12px;
-    background: #121212;
+    margin-bottom: 15px;
     border: 1px solid #444;
-    border-radius: 8px;
-    color: #fff;
-    font-family: inherit;
-    transition: border-color 0.3s, box-shadow 0.3s;
+    border-radius: 6px;
+    background-color: #222;
+    color: white;
+    box-sizing: border-box;
 }
 
-.form-group input:focus, 
-.form-group select:focus, 
-.form-group textarea:focus {
+input:focus, select:focus, textarea:focus {
     outline: none;
-    border-color: #ffcc00;
-    box-shadow: 0 0 8px rgba(255, 204, 0, 0.3);
+    border-color: var(--accent-yellow);
 }
 
-.btn-submit {
+button[type="submit"] {
     width: 100%;
-    background: #ffcc00;
-    color: #121212;
+    background-color: var(--accent-yellow);
+    color: black;
+    font-weight: bold;
     padding: 15px;
     border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 1.1rem;
+    border-radius: 6px;
     cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
+    font-size: 1rem;
+    transition: 0.3s;
 }
 
-.btn-submit:hover {
-    background: #e6b800;
-    transform: translateY(-2px);
+button[type="submit"]:hover {
+    background-color: var(--accent-hover);
 }
+
 
 /* ==========================================
-   DESACTIVAR NAV FIJO Y MEJORAR ESPACIADO
+   MEDIA QUERY MÓVIL (COMPLETO Y PERFECTO)
    ========================================== */
-
-/* Hace que el menú navegue con el scroll sin quedarse pegado arriba */
-header, nav, .navbar, .header-container {
-    position: relative !important;
-    top: auto !important;
-    left: auto !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-}
-
 @media (max-width: 768px) {
-    header, nav, .navbar {
+    
+    /* Ajuste de márgenes globales */
+    section {
+        padding: 40px 15px !important;
+    }
+
+    h2 {
+        font-size: 1.6rem !important;
+        margin-bottom: 25px !important;
+    }
+
+    /* Nav y Header */
+    header {
         padding: 15px 10px !important;
-        display: flex !important;
+    }
+
+    .nav-container {
         flex-direction: column !important;
-        align-items: center !important;
-        gap: 8px !important;
+        gap: 12px !important;
+        text-align: center !important;
     }
 
-    /* Reducir el título principal del nav */
-    header h1, .logo, .brand {
-        font-size: 1.3rem !important;
-        text-align: center;
-        margin-bottom: 5px;
+    header h1, .logo {
+        font-size: 1.25rem !important;
+        white-space: normal !important; /* Permite que el logo baje de línea si el móvil es estrecho */
+        margin-bottom: 5px !important;
     }
 
-    /* Enlaces de navegación alineados en horizontal */
     nav ul, .nav-links {
-        display: flex !important;
         flex-wrap: wrap !important;
         justify-content: center !important;
         gap: 12px !important;
-        padding: 0 !important;
-        margin: 5px 0 !important;
-        list-style: none;
     }
 
-    /* Botón destacado ¡Apúntate Ya! más compacto */
-    header .btn, header button, .btn-apuntate {
+    /* Enlaces un poco más pequeños en móvil */
+    header a, nav ul li a, .nav-links a {
         font-size: 0.85rem !important;
-        padding: 8px 16px !important;
-        width: auto !important;
+        padding-bottom: 2px !important;
     }
 
-    /* Asegurar que las tarjetas de cursos/permisos no se monten arriba */
-    main, .hero, .container, section {
-        margin-top: 0 !important;
-        padding-top: 15px !important;
+    .btn-apuntate {
+        width: 100% !important;
+        max-width: 250px !important;
+        margin-top: 5px !important;
+    }
+
+    /* Tarjetas de Permisos en 1 sola columna en móvil */
+    .grid, .cards-container, .permisos-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .card {
+        padding: 15px !important;
+    }
+
+    /* Formulario ocupa el 100% de la pantalla */
+    form {
+        padding: 20px 15px !important;
+        width: 100% !important;
     }
 }
