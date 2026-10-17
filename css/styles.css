@@ -320,3 +320,57 @@ footer {
     background: #e6b800;
     transform: translateY(-2px);
 }
+
+/* ==========================================
+   DESACTIVAR NAV FIJO Y MEJORAR ESPACIADO
+   ========================================== */
+
+/* Hace que el menú navegue con el scroll sin quedarse pegado arriba */
+header, nav, .navbar, .header-container {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+@media (max-width: 768px) {
+    header, nav, .navbar {
+        padding: 15px 10px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 8px !important;
+    }
+
+    /* Reducir el título principal del nav */
+    header h1, .logo, .brand {
+        font-size: 1.3rem !important;
+        text-align: center;
+        margin-bottom: 5px;
+    }
+
+    /* Enlaces de navegación alineados en horizontal */
+    nav ul, .nav-links {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 12px !important;
+        padding: 0 !important;
+        margin: 5px 0 !important;
+        list-style: none;
+    }
+
+    /* Botón destacado ¡Apúntate Ya! más compacto */
+    header .btn, header button, .btn-apuntate {
+        font-size: 0.85rem !important;
+        padding: 8px 16px !important;
+        width: auto !important;
+    }
+
+    /* Asegurar que las tarjetas de cursos/permisos no se monten arriba */
+    main, .hero, .container, section {
+        margin-top: 0 !important;
+        padding-top: 15px !important;
+    }
+}
