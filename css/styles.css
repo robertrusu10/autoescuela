@@ -12,58 +12,121 @@ body {
     line-height: 1.6;
 }
 
-/* --- CABECERA --- */
-header {
-    background-color: rgba(18, 18, 18, 0.95);
-    padding: 1.5rem 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    border-bottom: 1px solid #333;
+/* ==========================================
+   HEADER Y NAV MODERNO - AUTOESCUELA (DESKTOP)
+   ========================================== */
+
+header, nav, .navbar {
+    width: 100% !important;
+    background-color: #121212; /* Fondo oscuro elegante */
+    border-bottom: 1px solid #2a2a2a; /* Línea de separación inferior */
+    padding: 15px 5%;
+    box-sizing: border-box;
+    position: relative !important; /* Para que suba con el scroll */
 }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    letter-spacing: 1px;
+.nav-container, header .container, .navbar-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 20px;
 }
 
-.logo span {
-    color: #ffcc00; /* Amarillo neón */
+/* Logo / Título en una sola línea */
+header h1, .logo, .brand {
+    font-size: 1.3rem !important;
+    font-weight: 700;
+    white-space: nowrap !important; /* Evita que "By Rusu" baje a otra línea */
+    margin: 0 !important;
+    color: #ffffff;
 }
 
-nav {
-    display: flex;
-    gap: 30px;
+header h1 span, .logo span {
+    color: #ffcc00; /* Color amarillo de acento */
 }
 
-nav a {
-    text-decoration: none;
-    color: #ccc;
+/* Menú de navegación centrado y espaciado */
+nav ul, .nav-links {
+    display: flex !important;
+    align-items: center !important;
+    gap: 25px !important; /* Espacio uniforme entre enlaces */
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+nav ul li a, .nav-links a {
+    color: #e0e0e0 !important;
+    text-decoration: none !important;
+    font-size: 0.95rem !important;
     font-weight: 500;
-    transition: color 0.3s;
+    transition: color 0.2s ease, border-bottom 0.2s ease;
+    padding-bottom: 4px;
 }
 
-nav a:hover {
-    color: #ffcc00;
+/* Efecto hover elegante al pasar el ratón */
+nav ul li a:hover, .nav-links a:hover {
+    color: #ffcc00 !important;
+    border-bottom: 2px solid #ffcc00;
 }
 
-.btn-header {
-    background-color: #ffcc00;
-    color: #121212;
-    padding: 10px 20px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: transform 0.3s, box-shadow 0.3s;
+/* Botón destacado "¡Apúntate Ya!" */
+.btn-apuntate, header .btn, header button {
+    background-color: #ffcc00 !important;
+    color: #000000 !important;
+    font-weight: 700 !important;
+    font-size: 0.9rem !important;
+    padding: 10px 22px !important;
+    border-radius: 25px !important;
+    text-decoration: none !important;
+    border: none !important;
+    white-space: nowrap !important;
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-.btn-header:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(255, 204, 0, 0.6);
+.btn-apuntate:hover, header .btn:hover {
+    background-color: #e6b800 !important;
+    transform: translateY(-2px);
+}
+
+
+/* ==========================================
+   ADAPTACIÓN RESPONSIVE PARA MÓVIL
+   ========================================== */
+
+@media (max-width: 768px) {
+    header, nav, .navbar {
+        padding: 15px 20px !important;
+    }
+
+    .nav-container, header .container, .navbar-content {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 12px !important;
+    }
+
+    header h1, .logo {
+        font-size: 1.1rem !important;
+        white-space: normal !important;
+    }
+
+    nav ul, .nav-links {
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 12px !important;
+    }
+
+    nav ul li a, .nav-links a {
+        font-size: 0.85rem !important;
+    }
+
+    .btn-apuntate, header .btn {
+        width: 100% !important;
+        max-width: 250px;
+        margin-top: 5px;
+    }
 }
 
 /* --- SECCIÓN HERO (PORTADA) --- */
