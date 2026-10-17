@@ -13,64 +13,44 @@ body {
 }
 
 /* ==========================================
-   HEADER Y NAV MODERNO - AUTOESCUELA (DESKTOP)
+   HEADER Y NAV MODERNO - AUTOESCUELA (COMPLETO)
    ========================================== */
-/* Estilos limpios para el nav de Autoescuela */
-header nav ul.nav-links {
-    display: flex !important;
-    gap: 20px !important;
-    list-style: none !important;
-    margin: 0 !important;
-    padding: 0 !important;
-}
 
-/* Quitar colores azules/morados por defecto de los enlaces visitados */
-header nav ul.nav-links a,
-header nav ul.nav-links a:visited {
-    color: #ffffff !important; /* Texto blanco siempre */
-    text-decoration: none !important; /* Quitar subrayado morado */
-    font-size: 0.95rem;
-    font-weight: 500;
-    transition: color 0.2s ease;
-}
-
-/* Color dorado al pasar el ratón */
-header nav ul.nav-links a:hover {
-    color: #ffcc00 !important;
-}
+/* 1. Contenedor principal del Header */
 header, nav, .navbar {
     width: 100% !important;
-    background-color: #121212; /* Fondo oscuro elegante */
-    border-bottom: 1px solid #2a2a2a; /* Línea de separación inferior */
-    padding: 15px 5%;
-    box-sizing: border-box;
+    background-color: #121212 !important; /* Fondo oscuro elegante */
+    border-bottom: 1px solid #2a2a2a !important; /* Línea de separación */
+    padding: 15px 5% !important;
+    box-sizing: border-box !important;
     position: relative !important; /* Para que suba con el scroll */
 }
 
+/* 2. Distribución interna (Logo - Menú - Botón) */
 .nav-container, header .container, .navbar-content {
-    max-width: 1200px;
-    margin: 0 auto;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
     display: flex !important;
     justify-content: space-between !important;
     align-items: center !important;
-    gap: 20px;
+    gap: 20px !important;
 }
 
-/* Logo / Título en una sola línea */
+/* 3. Logo / Título en una sola línea */
 header h1, .logo, .brand {
     font-size: 1.3rem !important;
-    font-weight: 700;
-    white-space: nowrap !important; /* Evita que "By Rusu" baje a otra línea */
+    font-weight: 700 !important;
+    white-space: nowrap !important; /* Evita que baje a otra línea */
     margin: 0 !important;
-    color: #ffffff;
+    color: #ffffff !important;
 }
 
 header h1 span, .logo span {
-    color: #ffcc00; /* Color amarillo de acento */
+    color: #ffcc00 !important; /* Color amarillo de acento */
 }
 
-/* Menú de navegación centrado y espaciado */
-nav ul, .nav-links {
+/* 4. Contenedor de enlaces del menú */
+nav ul, .nav-links, header nav ul.nav-links {
     display: flex !important;
     align-items: center !important;
     gap: 25px !important; /* Espacio uniforme entre enlaces */
@@ -79,22 +59,29 @@ nav ul, .nav-links {
     padding: 0 !important;
 }
 
-nav ul li a, .nav-links a {
-    color: #e0e0e0 !important;
-    text-decoration: none !important;
+/* 5. Enlaces (SIEMPRE blancos, sin morado ni subrayado) */
+nav ul li a, 
+.nav-links a, 
+header nav ul.nav-links a,
+header nav ul.nav-links a:link,
+header nav ul.nav-links a:visited {
+    color: #ffffff !important; 
+    text-decoration: none !important; 
     font-size: 0.95rem !important;
-    font-weight: 500;
-    transition: color 0.2s ease, border-bottom 0.2s ease;
-    padding-bottom: 4px;
+    font-weight: 500 !important;
+    transition: color 0.2s ease, border-bottom 0.2s ease !important;
+    padding-bottom: 4px !important;
 }
 
-/* Efecto hover elegante al pasar el ratón */
-nav ul li a:hover, .nav-links a:hover {
+/* 6. Efecto hover elegante al pasar el ratón */
+nav ul li a:hover, 
+.nav-links a:hover,
+header nav ul.nav-links a:hover {
     color: #ffcc00 !important;
-    border-bottom: 2px solid #ffcc00;
+    border-bottom: 2px solid #ffcc00 !important;
 }
 
-/* Botón destacado "¡Apúntate Ya!" */
+/* 7. Botón destacado "¡Apúntate Ya!" */
 .btn-apuntate, header .btn, header button {
     background-color: #ffcc00 !important;
     color: #000000 !important;
@@ -105,12 +92,12 @@ nav ul li a:hover, .nav-links a:hover {
     text-decoration: none !important;
     border: none !important;
     white-space: nowrap !important;
-    transition: transform 0.2s ease, background-color 0.2s ease;
+    transition: transform 0.2s ease, background-color 0.2s ease !important;
 }
 
 .btn-apuntate:hover, header .btn:hover {
     background-color: #e6b800 !important;
-    transform: translateY(-2px);
+    transform: translateY(-2px) !important;
 }
 
 
