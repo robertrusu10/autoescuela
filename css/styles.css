@@ -15,7 +15,29 @@ body {
 /* ==========================================
    HEADER Y NAV MODERNO - AUTOESCUELA (DESKTOP)
    ========================================== */
+/* Estilos limpios para el nav de Autoescuela */
+header nav ul.nav-links {
+    display: flex !important;
+    gap: 20px !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
 
+/* Quitar colores azules/morados por defecto de los enlaces visitados */
+header nav ul.nav-links a,
+header nav ul.nav-links a:visited {
+    color: #ffffff !important; /* Texto blanco siempre */
+    text-decoration: none !important; /* Quitar subrayado morado */
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+/* Color dorado al pasar el ratón */
+header nav ul.nav-links a:hover {
+    color: #ffcc00 !important;
+}
 header, nav, .navbar {
     width: 100% !important;
     background-color: #121212; /* Fondo oscuro elegante */
